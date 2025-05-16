@@ -67,7 +67,7 @@ $fonte = $_SESSION['fonte'] ?? 'normal';
         <section>
             <h2>✨ Conteúdo Fofo</h2>
             <p>Veja conteúdos adoráveis com suporte à sua visão 🐱🎀</p>
-            <img src="hello-kitty.png" alt="Hello Kitty">
+            <img src="hellokitty.png" alt="Hello Kitty">
         </section>
     </main>
 </body>
