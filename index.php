@@ -1,54 +1,74 @@
-/* calcular.php - Página acessível com recursos para DALL·E e funcionalidades extras */
-['title' => 'Calculadora Mágica', 'desc' => 'Use os controles mágicos abaixo para personalizar sua experiência!'], 'en' => ['title' => 'Magic Calculator', 'desc' => 'Use the magical controls below to customize your experience!'], 'es' => ['title' => 'Calculadora Mágica', 'desc' => '¡Utiliza los controles mágicos para personalizar tu experiencia!'], 'fr' => ['title' => 'Calculatrice Magique', 'desc' => 'Utilisez les contrôles magiques pour personnaliser votre expérience !'], 'de' => ['title' => 'Magischer Rechner', 'desc' => 'Benutzen Sie die magischen Einstellungen, um Ihr Erlebnis anzupassen!'] ]; $lang = $_GET['lang'] ?? 'pt'; $text = $langs[$lang]; ?><?= $text['title'] ?>
-<div>
-    <button onclick="toggleTheme()">Modo Claro/Escuro</button>
-    <button onclick="increaseFont()">Aumentar Fonte</button>
-    <button onclick="decreaseFont()">Diminuir Fonte</button>
-    <button onclick="applyDalleTheme()">Sou o DALL·E</button>
-</div>
- 
-<div style="margin-top:20px;">
-    <form method="get">
-        <label for="lang">Idioma:</label>
-        <select name="lang" id="lang" onchange="this.form.submit()">
-            <option value="pt" <?= $lang === 'pt' ? 'selected' : '' ?>>Português</option>
-            <option value="en" <?= $lang === 'en' ? 'selected' : '' ?>>English</option>
-            <option value="es" <?= $lang === 'es' ? 'selected' : '' ?>>Español</option>
-            <option value="fr" <?= $lang === 'fr' ? 'selected' : '' ?>>Français</option>
-            <option value="de" <?= $lang === 'de' ? 'selected' : '' ?>>Deutsch</option>
-        </select>
-    </form>
-</div>
- 
-<script>
-    let fontSize = 100;
- 
-    function toggleTheme() {
-        const style = document.getElementById('theme-style');
-        if (style.innerHTML.includes('background-color: white')) {
-            style.innerHTML = `body { background-color: #121212; color: white; font-family: 'Comic Sans MS', cursive; text-align: center; padding: 20px; }`;
-        } else {
-            style.innerHTML = `body { background-color: white; color: black; font-family: 'Comic Sans MS', cursive; text-align: center; padding: 20px; }`;
-        }
-    }
- 
-    function increaseFont() {
-        fontSize += 10;
-document.body.style.fontSize = fontSize + '%';
-    }
- 
-    function decreaseFont() {
-        fontSize = Math.max(50, fontSize - 10);
-document.body.style.fontSize = fontSize + '%';
-    }
- 
-    function applyDalleTheme() {
-        document.getElementById('theme-style').innerHTML = `body {
-            background-color: #000;
-            color: #00ffcc;
-            font-family: 'Comic Sans MS', cursive;
-            text-align: center;
-            padding: 20px;
-        }`;
-    }
-</script>
+<?php
+session_start();
+
+// Salvar preferências do usuário
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['tema'] = $_POST['tema'] ?? 'claro';
+    $_SESSION['idioma'] = $_POST['idioma'] ?? 'pt';
+    $_SESSION['daltonico'] = $_POST['daltonico'] ?? 'nao';
+    $_SESSION['fonte'] = $_POST['fonte'] ?? 'normal';
+}
+
+// Recuperar preferências
+$tema = $_SESSION['tema'] ?? 'claro';
+$idioma = $_SESSION['idioma'] ?? 'pt';
+$daltonico = $_SESSION['daltonico'] ?? 'nao';
+$fonte = $_SESSION['fonte'] ?? 'normal';
+?>
+
+<!DOCTYPE html>
+<html lang="<?php echo $idioma; ?>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Fofo Personalizável</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body class="tema-<?php echo $tema; ?> fonte-<?php echo $fonte; ?> <?php echo $daltonico === 'sim' ? 'daltonico' : ''; ?>">
+    <header>
+        <h1>Bem-vindo ao Mundo Fofo!</h1>
+    </header>
+
+    <main>
+        <form method="POST">
+            <h2>🎨 Personalize sua Experiência</h2>
+
+            <label for="tema">Tema:</label>
+            <select name="tema" id="tema">
+                <option value="claro" <?php if ($tema === 'claro') echo 'selected'; ?>>Claro</option>
+                <option value="escuro" <?php if ($tema === 'escuro') echo 'selected'; ?>>Escuro</option>
+            </select>
+
+            <label for="idioma">Idioma:</label>
+            <select name="idioma" id="idioma">
+                <option value="pt" <?php if ($idioma === 'pt') echo 'selected'; ?>>Português</option>
+                <option value="en" <?php if ($idioma === 'en') echo 'selected'; ?>>Inglês</option>
+                <option value="ja" <?php if ($idioma === 'ja') echo 'selected'; ?>>Japonês</option>
+            </select>
+
+            <label for="daltonico">Você é daltônico?</label>
+            <select name="daltonico" id="daltonico">
+                <option value="nao" <?php if ($daltonico === 'nao') echo 'selected'; ?>>Não</option>
+                <option value="sim" <?php if ($daltonico === 'sim') echo 'selected'; ?>>Sim</option>
+            </select>
+
+            <label for="fonte">Tamanho da Fonte:</label>
+            <select name="fonte" id="fonte">
+                <option value="normal" <?php if ($fonte === 'normal') echo 'selected'; ?>>Normal</option>
+                <option value="grande" <?php if ($fonte === 'grande') echo 'selected'; ?>>Grande</option>
+                <option value="muito-grande" <?php if ($fonte === 'muito-grande') echo 'selected'; ?>>Muito Grande</option>
+            </select>
+
+            <br><br>
+            <button type="submit">Salvar Preferências</button>
+        </form>
+
+        <section>
+            <h2>✨ Conteúdo Fofo</h2>
+            <p>Veja conteúdos adoráveis com suporte à sua visão 🐱🎀</p>
+            <img src="hello-kitty.png" alt="Hello Kitty">
+        </section>
+    </main>
+</body>
+</html>
