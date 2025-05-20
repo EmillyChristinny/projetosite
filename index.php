@@ -1,74 +1,64 @@
 <?php
+// Inicia a sessão para armazenar as preferências do usuário
 session_start();
 
-// Salvar preferências do usuário
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_SESSION['tema'] = $_POST['tema'] ?? 'claro';
-    $_SESSION['idioma'] = $_POST['idioma'] ?? 'pt';
-    $_SESSION['daltonico'] = $_POST['daltonico'] ?? 'nao';
-    $_SESSION['fonte'] = $_POST['fonte'] ?? 'normal';
-}
-
-// Recuperar preferências
-$tema = $_SESSION['tema'] ?? 'claro';
-$idioma = $_SESSION['idioma'] ?? 'pt';
-$daltonico = $_SESSION['daltonico'] ?? 'nao';
-$fonte = $_SESSION['fonte'] ?? 'normal';
+// Inclui o arquivo de configuração
+include 'config.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="<?php echo $idioma; ?>">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Fofo Personalizável</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="scripts.js" defer></script>
+    <title>A História da Hello Kitty</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="tema-<?php echo $tema; ?> fonte-<?php echo $fonte; ?> <?php echo $daltonico === 'sim' ? 'daltonico' : ''; ?>">
+<body class="<?php echo $_SESSION['theme']; ?> <?php echo $_SESSION['font_size']; ?> <?php echo $_SESSION['color_blind']; ?>">
+
     <header>
-        <h1>Bem-vindo ao Mundo Fofo!</h1>
+        <h1>A História da Hello Kitty</h1>
     </header>
 
-    <main>
+    <section>
+        <h2>Introdução</h2>
+        <p>A Hello Kitty foi criada em 1974 pela designer Yuko Shimizu, da empresa japonesa Sanrio. Ela é uma gatinha branca com uma fita vermelha na orelha esquerda e sem boca, permitindo que as pessoas projetem seus próprios sentimentos nela.</p>
+        <p>Desde então, a Hello Kitty se tornou um ícone global, presente em mais de 130 países e em milhares de produtos diferentes.</p>
+    </section>
+
+    <section>
+        <h2>Personalize sua Experiência</h2>
         <form method="POST">
-            <h2>🎨 Personalize sua Experiência</h2>
-
-            <label for="tema">Tema:</label>
-            <select name="tema" id="tema">
-                <option value="claro" <?php if ($tema === 'claro') echo 'selected'; ?>>Claro</option>
-                <option value="escuro" <?php if ($tema === 'escuro') echo 'selected'; ?>>Escuro</option>
+            <label for="theme">Tema:</label>
+            <select name="theme" id="theme">
+                <option value="light" <?php echo ($_SESSION['theme'] == 'light') ? 'selected' : ''; ?>>Claro</option>
+                <option value="dark" <?php echo ($_SESSION['theme'] == 'dark') ? 'selected' : ''; ?>>Escuro</option>
             </select>
 
-            <label for="idioma">Idioma:</label>
-            <select name="idioma" id="idioma">
-                <option value="pt" <?php if ($idioma === 'pt') echo 'selected'; ?>>Português</option>
-                <option value="en" <?php if ($idioma === 'en') echo 'selected'; ?>>Inglês</option>
-                <option value="ja" <?php if ($idioma === 'ja') echo 'selected'; ?>>Japonês</option>
+            <label for="language">Idioma:</label>
+            <select name="language" id="language">
+                <option value="pt-BR" <?php echo ($_SESSION['language'] == 'pt-BR') ? 'selected' : ''; ?>>Português</option>
+                <option value="en-US" <?php echo ($_SESSION['language'] == 'en-US') ? 'selected' : ''; ?>>Inglês</option>
             </select>
 
-            <label for="daltonico">Você é daltônico?</label>
-            <select name="daltonico" id="daltonico">
-                <option value="nao" <?php if ($daltonico === 'nao') echo 'selected'; ?>>Não</option>
-                <option value="sim" <?php if ($daltonico === 'sim') echo 'selected'; ?>>Sim</option>
+            <label for="color_blind">Modo Daltonismo:</label>
+            <select name="color_blind" id="color_blind">
+                <option value="" <?php echo ($_SESSION['color_blind'] == '') ? 'selected' : ''; ?>>Nenhum</option>
+                <option value="deuteranopia" <?php echo ($_SESSION['color_blind'] == 'deuteranopia') ? 'selected' : ''; ?>>Deuteranopia</option>
+                <option value="protanopia" <?php echo ($_SESSION['color_blind'] == 'protanopia') ? 'selected' : ''; ?>>Protanopia</option>
+                <option value="tritanopia" <?php echo ($_SESSION['color_blind'] == 'tritanopia') ? 'selected' : ''; ?>>Tritanopia</option>
             </select>
 
-            <label for="fonte">Tamanho da Fonte:</label>
-            <select name="fonte" id="fonte">
-                <option value="normal" <?php if ($fonte === 'normal') echo 'selected'; ?>>Normal</option>
-                <option value="grande" <?php if ($fonte === 'grande') echo 'selected'; ?>>Grande</option>
-                <option value="muito-grande" <?php if ($fonte === 'muito-grande') echo 'selected'; ?>>Muito Grande</option>
+            <label for="font_size">Tamanho da Fonte:</label>
+            <select name="font_size" id="font_size">
+                <option value="small" <?php echo ($_SESSION['font_size'] == 'small') ? 'selected' : ''; ?>>Pequeno</option>
+                <option value="medium" <?php echo ($_SESSION['font_size'] == 'medium') ? 'selected' : ''; ?>>Médio</option>
+                <option value="large" <?php echo ($_SESSION['font_size'] == 'large') ? 'selected' : ''; ?>>Grande</option>
             </select>
 
-            <br><br>
-            <button type="submit">Salvar Preferências</button>
+            <button type="submit">Aplicar Preferências</button>
         </form>
+    </section>
 
-        <section>
-            <h2>✨ Conteúdo Fofo</h2>
-            <p>Veja conteúdos adoráveis com suporte à sua visão 🐱🎀</p>
-            <img src="hellokitty.png" alt="Hello Kitty">
-        </section>
-    </main>
 </body>
 </html>
