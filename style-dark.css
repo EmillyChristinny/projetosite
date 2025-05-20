@@ -1,72 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
-
 body {
-  background: linear-gradient(to bottom, #1c1c2b, #2b2b3c);
-  font-family: 'Baloo 2', cursive;
-  color: #ffb6e6;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+    background-color: #333;
+    color: #000000;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #ff87d4;
-  margin: 30px 0 20px;
-  text-shadow: 2px 2px #3a3a4d;
+header, footer {
+    background-color: #555;
 }
 
-.character-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 25px;
-  margin: 20px;
-}
-
-.character {
-  border-radius: 50%;
-  background-color: #33334d;
-  padding: 15px;
-  width: 130px;
-  height: 130px;
-  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-}
-
-.character:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
-}
-
-.character img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  border: 2px solid #ffb6e6;
-}
-
-.button {
-  background-color: #ff87d4;
-  color: #1c1c2b;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 25px;
-  font-size: 1rem;
-  font-family: 'Baloo 2', cursive;
-  cursor: pointer;
-  margin-top: 30px;
-  box-shadow: 0 3px 6px rgba(255, 182, 230, 0.2);
-  transition: background 0.3s ease;
-}
-
-.button:hover {
-  background-color: #ff4cbf;
-}
-
-footer {
-  margin-top: 40px;
-  color: #b873c8;
-  font-size: 0.9rem;
-}
