@@ -1,8 +1,93 @@
+/* Estilo Geral */
 body {
-    background-color: #333;
-    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Cor de fundo suave */
+    color: #ffffff; /* Cor do texto */
 }
 
-header, footer {
-    background-color: #555;
+/* Cabeçalho */
+header {
+    background-color: #5c0631; /* Rosa vibrante */
+    padding: 35px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    color: rgb(46, 42, 42);
+    font-size: 2.5em;
+    margin: 0;
+}
+
+/* Navegação */
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: rgb(114, 0, 0);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+/* Seções principais */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgb(131, 131, 131); /* Fundo branco para seções */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+h2 {
+    color: #55072e; /* Cor rosa para títulos */
+    font-size: 1.8em;
+}
+
+/* Lista de curiosidades */
+ul {
+    list-style-type: none; /* Remove marcadores */
+    padding: 0;
+}
+
+ul li {
+    background: #ffe4e1; /* Fundo suave para itens da lista */
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #610131; /* Rosa vibrante */
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav a {
+        margin: 0 10px;
+    }
+
+    section {
+        padding: 15px;
+    }
 }
