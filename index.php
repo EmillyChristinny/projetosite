@@ -1,8 +1,8 @@
 <?php
-// Inicia a sessão para armazenar as preferências do usuário
+
 session_start();
 
-// Inclui o arquivo de configuração
+
 include 'config.php';
 ?>
 
