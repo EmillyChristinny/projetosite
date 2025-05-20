@@ -126,7 +126,7 @@ $content = [
         </footer>
     </main>
     <aside>
-        <h3>💖 Personalize sua experiência</h3>
+        <h3> Personalize sua experiência</h3>
         <form action="save-config.php" method="post">
             <label for="theme">Tema:</label>
             <select name="theme" id="theme">
