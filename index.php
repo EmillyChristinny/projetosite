@@ -95,7 +95,7 @@ $content = [
         main { flex: 3; padding: 1rem; }
         aside { flex: 1; padding: 1rem; background: #ffeef5; }
         aside form { display: flex; flex-direction: column; gap: 0.5rem; background: #fff; padding: 1rem; border-radius: 10px; }
-        img.hello-img { max-width: 100%; margin-bottom: 1rem; border-radius: 8px; }
+        img.hello-img { max-width: 100%; margin-bottom: 4.5rem; border-radius: 4.5px; }
     </style>
 </head>
 <body class="<?php echo $themeClass . ' ' . $colorBlindClass; ?>">
