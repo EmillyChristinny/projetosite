@@ -1,55 +1,40 @@
-/* Temas claro e escuro */
-body.tema-claro {
-    background: #fff;
-    color: #222;
+/* Tema Claro */
+.light {
+    background-color: #ffffff;
+    color: #000000;
 }
 
-body.tema-escuro {
-    background: #1e1e1e;
-    color: #eee;
+/* Tema Escuro */
+.dark {
+    background-color: #121212;
+    color: #ffffff;
 }
 
-/* Tamanhos de fonte */
-body.fonte-normal {
+/* Tamanhos de Fonte */
+.small {
+    font-size: 12px;
+}
+
+.medium {
     font-size: 16px;
 }
 
-body.fonte-grande {
+.large {
     font-size: 20px;
 }
 
-body.fonte-muito-grande {
-    font-size: 24px;
+/* Modo Daltonismo */
+.deuteranopia {
+    background-color: #f0f0f0;
+    color: #000000;
 }
 
-/* Tema Daltônico (cores seguras) */
-body.daltonico {
-    background-color: #fefefe;
-    color: #000;
+.protanopia {
+    background-color: #e0e0e0;
+    color: #000000;
 }
 
-body.daltonico h1, 
-body.daltonico h2 {
-    color: #005fcc; /* Azul seguro */
-}
-
-body.daltonico img {
-    border: 3px solid #000;
-}
-
-button {
-    background-color: #ffb6c1;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-body.daltonico button {
-    background-color: #ffc107; /* Amarelo forte */
-    color: #000;
-}
-
-select {
-    padding: 5px;
-    margin: 5px 0;
+.tritanopia {
+    background-color: #d0d0d0;
+    color: #000000;
 }
