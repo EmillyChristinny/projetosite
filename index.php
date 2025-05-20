@@ -26,7 +26,7 @@ $content = [
             'Hello Kitty é uma das personagens mais vendidas do mundo.'
         ]
     ],
-       'en' => [
+    'en' => [
         'title' => 'Hello Kitty History',
         'what_is' => 'What is Hello Kitty?',
         'description' => 'Hello Kitty is a fictional character created by designer Yuko Shimizu and launched by Sanrio in 1974. Since then, she has become a global icon, representing friendship and love.',
@@ -68,7 +68,7 @@ $content = [
     'ja' => [
         'title' => 'ハローキティの歴史',
         'what_is' => 'ハローキティとは？',
-        'description' => 'ハローキティは、デザイナーの清水侑子によって1974年にサンリオから発表された架空のキャラクターです。それ以来、友情と愛を象徴するグローバルアイコンとなりました。',
+        'description' => 'ハローキティは、デザイナーの清水俁子によって1974年にサンリオから発表された某人物のキャラクターです。それ以来、友情と愛を象徴するグローバルアイコンとなりました。',
         'history' => '歴史',
         'history_description' => 'ハローキティは、最初は財布やバッグのための製品として作られましたが、すぐに衣類やおもちゃなど、さまざまな製品に拡大しました。彼女のイメージは世界中で認識されており、ポップカルチャーの象徴となっています。',
         'curiosities' => '豆知識',
@@ -78,8 +78,6 @@ $content = [
             'ハローキティは世界で最も売れているキャラクターの一つです。'
         ]
     ]
-];
-?>
 ];
 ?>
 
@@ -93,60 +91,27 @@ $content = [
     <link rel="stylesheet" href="style-daltonic.css" <?php echo $colorBlind === 'yes' ? '' : 'disabled'; ?>>
     <title><?php echo $content[$language]['title']; ?></title>
     <style>
-        body {
-            font-size: <?php echo $fontSize; ?>;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-        main {
-            width: 65%;
-            padding: 20px;
-        }
-        .form-container {
-            width: 30%;
-            background-color: #ffe4f2;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            height: fit-content;
-        }
-        .form-container h3 {
-            color: #e60073;
-            margin-bottom: 15px;
-        }
-        .form-container label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        .form-container select, .form-container button {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-        }
-        footer {
-            width: 100%;
-            text-align: center;
-            margin-top: 20px;
-        }
+        body { font-size: <?php echo $fontSize; ?>; display: flex; flex-direction: row; }
+        main { flex: 3; padding: 1rem; }
+        aside { flex: 1; padding: 1rem; background: #ffeef5; }
+        aside form { display: flex; flex-direction: column; gap: 0.5rem; background: #fff; padding: 1rem; border-radius: 10px; }
+        img.hello-img { max-width: 100%; margin-bottom: 1rem; border-radius: 8px; }
     </style>
 </head>
 <body class="<?php echo $themeClass . ' ' . $colorBlindClass; ?>">
     <main>
         <header>
             <h1><?php echo $content[$language]['title']; ?></h1>
-            <nav>
-                <a href="form.php">Personalizar</a>
-            </nav>
         </header>
         <section>
             <h2><?php echo $content[$language]['what_is']; ?></h2>
             <p><?php echo $content[$language]['description']; ?></p>
+            <img src="hello1.jpg" alt="Hello Kitty 1" class="hello-img">
         </section>
         <section>
             <h2><?php echo $content[$language]['history']; ?></h2>
             <p><?php echo $content[$language]['history_description']; ?></p>
+            <img src="hello2.jpg" alt="Hello Kitty 2" class="hello-img">
         </section>
         <section>
             <h2><?php echo $content[$language]['curiosities']; ?></h2>
@@ -156,11 +121,13 @@ $content = [
                 <?php endforeach; ?>
             </ul>
         </section>
+        <footer>
+            <p>&copy; 2025 Hello Kitty. Todos os direitos reservados.</p>
+        </footer>
     </main>
-
-    <aside class="form-container">
-        <h3>🎋 Personalize sua experiência</h3>
-        <form action="save_preferences.php" method="POST">
+    <aside>
+        <h3>💖 Personalize sua experiência</h3>
+        <form action="save-config.php" method="post">
             <label for="theme">Tema:</label>
             <select name="theme" id="theme">
                 <option value="light">Claro</option>
@@ -184,17 +151,13 @@ $content = [
 
             <label for="fontSize">Fonte:</label>
             <select name="fontSize" id="fontSize">
-                <option value="small">Pequena</option>
-                <option value="medium">Média</option>
+                <option value="small">Pequeno</option>
+                <option value="medium">Médio</option>
                 <option value="large">Grande</option>
             </select>
 
             <button type="submit">Salvar</button>
         </form>
     </aside>
-
-    <footer>
-        <p>&copy; 2025 Hello Kitty. Todos os direitos reservados.</p>
-    </footer>
 </body>
 </html>
