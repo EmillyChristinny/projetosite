@@ -1,0 +1,12 @@
+body {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+h2 {
+    color: #ff69b4; /* Cor que se destaca para daltonicos */
+}
+
+header, footer {
+    background-color: #ffcccb; /* Cor suave para o tema daltonico */
+}
