@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap');
+
+body {
+  background: linear-gradient(to bottom, #ffe6f0, #fff);
+  font-family: 'Baloo 2', cursive;
+  color: #ff69b4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #ff4da6;
+  margin: 30px 0 20px;
+  text-shadow: 2px 2px #fff0f5;
+}
+
+.character-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 20px;
+}
+
+.character {
+  border-radius: 50%;
+  background-color: #fff0f5;
+  padding: 15px;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.character:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 105, 180, 0.5);
+}
+
+.character img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.button {
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-family: 'Baloo 2', cursive;
+  cursor: pointer;
+  margin-top: 30px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background-color: #ff69b4;
+}
+
+footer {
+  margin-top: 40px;
+  color: #d147a3;
+  font-size: 0.9rem;
+}

@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="pt">
 <head>
+       <link rel="stylesheet" href="style-personalizar.css">
     <meta charset="UTF-8">
     <title>Personalizar Configurações</title>
 </head>
