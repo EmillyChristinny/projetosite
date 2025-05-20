@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['theme'] = $_POST['theme'];
     $_SESSION['fontSize'] = $_POST['fontSize'];
     $_SESSION['language'] = $_POST['language'];
+    $_SESSION['colorBlind'] = $_POST['colorBlind'];
     header('Location: index.php');
     exit();
 }
@@ -13,9 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-       <link rel="stylesheet" href="style-personalizar.css">
     <meta charset="UTF-8">
     <title>Personalizar Configurações</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Personalizar Configurações</h1>
@@ -30,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <select name="language" id="language">
             <option value="pt">Português</option>
             <option value="en">Inglês</option>
+            <option value="es">Espanhol</option>
+            <option value="de">Alemão</option>
+            <option value="ja">Japonês</option>
         </select>
 
         <label for="colorBlind">Daltonismo:</label>
